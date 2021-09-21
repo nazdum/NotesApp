@@ -23,9 +23,7 @@ const LoginForm = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
         const { data } = await axios.post('http://localhost:3001/user/login', { username, password });
-        console.log(data.data.username , data.data.password);
         setLoginState({ username: '', password: '' });
     }
 
