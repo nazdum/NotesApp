@@ -3,6 +3,8 @@ import { useState } from 'react'
 
 import './styles.css'
 
+const axios = require('axios');
+
 const LoginForm = () => {
 
     const [loginState, setLoginState] = useState({
@@ -19,9 +21,11 @@ const LoginForm = () => {
         });
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log(loginState);
+
+        const { data } = await axios.post('http://localhost:3001/user/login', { username, password });
+        console.log(data.data.username , data.data.password);
         setLoginState({ username: '', password: '' });
     }
 
