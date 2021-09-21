@@ -1,10 +1,9 @@
 form div{
     margin-bottom: 10px;
-    background: floralwhite
 }
 
 form {
-    
+    background: antiquewhite;
     border-style: solid;
     padding: 20px;
     width: fit-content;

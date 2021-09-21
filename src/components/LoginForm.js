@@ -15,13 +15,14 @@ const LoginForm = () => {
     const handleChange = ({ target }) => {
         setLoginState({
             ...loginState,
-            [target.name] : target.value
+            [target.name]: target.value
         });
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log(loginState);
+        setLoginState({ username: '', password: '' });
     }
 
     return (
@@ -29,11 +30,11 @@ const LoginForm = () => {
             <h2>Login</h2>
 
             <div>
-                <input type="text" value={username} name="username" onChange={handleChange} placeholder="nombre de usuario" />
+                <input type="text" value={username} name="username" onChange={handleChange} placeholder="nombre de usuario" required />
             </div>
 
             <div>
-                <input type="password" value={password} name="password" onChange={handleChange} placeholder="contraseña" />
+                <input type="password" value={password} name="password" onChange={handleChange} placeholder="contraseña" required />
             </div>
 
             <div id='login-button-container'>
