@@ -1,0 +1,19 @@
+form div{
+    margin-bottom: 10px;
+
+}
+
+form {
+    
+    border-style: solid;
+    padding: 20px;
+    width: fit-content;
+}
+
+form h2 {
+    text-align: center;
+}
+
+form button {
+    width: 100%;
+}
