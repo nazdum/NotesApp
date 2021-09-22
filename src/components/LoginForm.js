@@ -5,7 +5,7 @@ import './styles.css'
 
 const axios = require('axios');
 
-const LoginForm = () => {
+const LoginForm = ({ setIsLogged, setUserData }) => {
 
     const [loginState, setLoginState] = useState({
         username: '',
@@ -23,8 +23,17 @@ const LoginForm = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const { data } = await axios.post('http://localhost:3001/user/login', { username, password });
-        setLoginState({ username: '', password: '' });
+        await axios.post('http://localhost:3001/user/login', { username, password })
+            .then(({ data }) => {
+
+
+
+                const { name, token } = data.userInfo
+                setUserData({ name, token });
+
+                setIsLogged(true);
+            }).catch(error => console.log(error));
+
     }
 
     return (
