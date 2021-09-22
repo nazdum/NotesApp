@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import LoginForm from './components/LoginForm';
+import LogOut from './components/LogOut';
 
 const App = () => {
 
@@ -18,7 +19,8 @@ const App = () => {
     <>
 
       {
-        token ? <h1>{`Logged as ${name}`}</h1>
+        token ?
+          <><h1>{`Logged as ${name}`}</h1> <LogOut setUserData={setUserData} /> </>
           : <LoginForm setUserData={setUserData} setIsLogged={setIsLogged} />
       }
 
