@@ -7,6 +7,7 @@ const LogOut = ({ setUserData }) => {
             token: ''
         });
         window.localStorage.removeItem('PersonalAccessToken');
+        window.localStorage.removeItem('RealNameOfUser');
     }
 
     return (
