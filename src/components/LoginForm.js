@@ -26,11 +26,10 @@ const LoginForm = ({ setIsLogged, setUserData }) => {
         await axios.post('http://localhost:3001/user/login', { username, password })
             .then(({ data }) => {
 
-
-
-                const { name, token } = data.userInfo
+                const { name, token } = data.userInfo;
                 setUserData({ name, token });
-
+                window.localStorage.setItem('PersonalAccessToken', token);
+                window.localStorage.setItem('RealNameOfUser', name);
                 setIsLogged(true);
             }).catch(error => console.log(error));
 

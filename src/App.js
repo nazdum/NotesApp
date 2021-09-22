@@ -6,15 +6,20 @@ const App = () => {
 
   const [isLogged, setIsLogged] = useState(false);
 
-  const [userData, setUserData] = useState({ name: '', token: '' });
+  const [userData, setUserData] = useState({
+    name: window.localStorage.getItem('RealNameOfUser'),
+    token: window.localStorage.getItem('PersonalAccessToken')
+  });
   const { name, token } = userData;
+
 
   return (
 
     <>
 
       {
-        isLogged ? <h1>{`Logged as ${name} your token is: ${token}`}</h1> : <LoginForm setUserData={setUserData} setIsLogged={setIsLogged} />
+        token ? <h1>{`Logged as ${name}`}</h1>
+          : <LoginForm setUserData={setUserData} setIsLogged={setIsLogged} />
       }
 
 
